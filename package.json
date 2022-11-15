@@ -1,0 +1,23 @@
+{
+  "name": "bolby",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "sass": "sass ./asset/sass/style.scss ./asset/css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khalidccnu/bolby.git"
+  },
+  "keywords": [],
+  "author": "S.M. Khalid Mahmud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khalidccnu/bolby/issues"
+  },
+  "homepage": "https://github.com/khalidccnu/bolby#readme",
+  "devDependencies": {
+    "sass": "^1.56.0"
+  }
+}
