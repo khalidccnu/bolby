@@ -1,0 +1,243 @@
+@import "variable";
+@import "mixin";
+
+/* ===== Font ===== */
+@include google_font("Rubik");
+
+%font-rb-regular {
+  @include font($fontName: "Rubik");
+}
+
+%font-rb-medium {
+  @include font("Rubik", 500);
+}
+
+%font-rb-semi-bold {
+  @include font("Rubik", 600);
+}
+
+%font-rb-bold {
+  @include font("Rubik", 700);
+}
+
+/* ===== Common ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $colorLight;
+  color: $colorDark;
+  @extend %font-rb-medium;
+  font-size: $normalFontSize;
+  line-height: 1.7;
+}
+
+.container {
+  width: 100%;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+h1 {
+  font-size: $h1FontSize;
+}
+
+h2 {
+  font-size: $h2FontSize;
+}
+
+h3 {
+  font-size: $h3FontSize;
+}
+
+h1, h2, h3 {
+  @extend %font-rb-semi-bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+button, input, textarea {
+  @extend %font-rb-regular;
+  font-size: $normalFontSize;
+}
+
+/* ===== Header ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  text-transform: capitalize;
+  z-index: 10;
+
+  @include sm_device {
+    top: auto;
+    bottom: 2rem;
+    padding: 0;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 3rem;
+
+    @include sm_device {
+      column-gap: 1rem;
+      max-width: 75%;
+      margin: 0 auto;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+    }
+
+    .navbar-brand {
+      position: relative;
+      @extend %font-rb-semi-bold;
+      font-size: $h2FontSize;
+      letter-spacing: 0.125rem;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 56%;
+        right: -0.25rem;
+        height: 0.3rem;
+        width: 0.3rem;
+        border-radius: 50%;
+        background-color: $colorPrimary;
+      }
+    }
+
+    #navbar-collapse {
+      margin-left: auto;
+
+      @include sm_device {
+        position: fixed;
+        right: 2rem;
+        bottom: 2rem;
+        left: 2rem;
+        max-width: 70%;
+        margin-right: auto;
+        border-radius: 1rem;
+        background-color: $colorLight;
+        box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+        transition: bottom 0.3s;
+
+        &.collapse {
+          bottom: -100vh;
+        }
+      }
+
+      .navbar-nav {
+        display: grid;
+        grid-template-columns: repeat(6, auto);
+        column-gap: 2rem;
+        list-style: none;
+
+        @include sm_device {
+          grid-template-columns: repeat(3, auto);
+          justify-content: center;
+          row-gap: 1.5rem;
+          padding: 0.5rem 1.2rem;
+          text-align: center;
+        }
+
+        @include xsm_device {
+          grid-template-columns: repeat(2, auto);
+        }
+
+        @include xxsm_device {
+          grid-template-columns: repeat(1, auto);
+        }
+
+        .nav-link {
+          color: $colorDark;
+          @extend %font-rb-medium;
+          transition: color 0.3s;
+
+          &.active {
+            position: relative;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -0.75rem;
+              left: 45%;
+              height: 0.3rem;
+              width: 0.3rem;
+              border-radius: 50%;
+              background-color: $colorPrimary;
+            }
+          }
+
+          &:hover {
+            color: $colorPrimary;
+          }
+
+          @include sm_device {
+            display: inline-flex;
+            flex-direction: column;
+          }
+
+          .lni {
+            display: none;
+
+            @include sm_device {
+              display: inline;
+            }
+
+            @include xxsm_device {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .navbar-btn {
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+
+      .tm-switch {
+        font-size: 1.15rem;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $colorPrimary;
+        }
+      }
+
+      .navbar-toggler {
+        display: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $colorPrimary;
+        }
+
+        @include sm_device {
+          display: inline;
+
+          &.collapse {
+            z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}

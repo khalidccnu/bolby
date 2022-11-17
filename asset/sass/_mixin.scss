@@ -1,0 +1,31 @@
+// ===== Font
+@mixin google_font($fontName: "Poppins") {
+  $fontName: unquote($fontName);
+  @import url("https://fonts.googleapis.com/css2?family=#{$fontName}:wght@400;500;600;700&display=swap");
+}
+
+@mixin font($fontName: "Poppins", $fontWeight: 400) {
+  font: {
+    family: $fontName, sans-serif;
+    weight: $fontWeight;
+  }
+}
+
+// ===== Responsive
+@mixin sm_device {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin xsm_device {
+  @media screen and (max-width: 575px) {
+    @content;
+  }
+}
+
+@mixin xxsm_device {
+  @media screen and (max-width: 475px) {
+    @content;
+  }
+}
