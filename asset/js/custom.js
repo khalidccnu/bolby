@@ -61,12 +61,22 @@ function header_sticky() {
     }
 }
 
+// ===== Home / Scroll Down =====
+function home_scroll_down() {
+    let scrollDown = document.querySelector(".scroll-down");
+
+    if (document.documentElement.scrollTop > 10) scrollDown.classList.add("hide");
+    else scrollDown.classList.remove("hide");
+}
+
 // ===== Initial Load =====
 navlink_active();
 header_sticky();
+home_scroll_down();
 
 // ===== Window Scroll Event =====
 onscroll = function() {
     navlink_active();
     header_sticky();
+    home_scroll_down();
 }
