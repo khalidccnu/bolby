@@ -20,6 +20,28 @@
   @include font("Rubik", 700);
 }
 
+/* ===== Button ===== */
+%btn {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border-radius: 2rem;
+}
+
+%btn-primary {
+  background-color: $colorPrimary;
+  color: #fff;
+  transform: perspective(1px) translateZ(0);
+
+  &:hover {
+    animation: push 0.3s linear 1;
+
+    @keyframes push {
+      50% { transform: scale(0.8); }
+      100% { transform: scale(1); }
+    }
+  }
+}
+
 /* ===== Common ===== */
 * {
   margin: 0;
@@ -98,6 +120,7 @@ header {
       margin: 0 auto;
       padding: 0.5rem 1.2rem;
       border-radius: 2rem;
+      background-color: $colorLight;
       box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
     }
 
@@ -235,6 +258,88 @@ header {
 
           &.collapse {
             z-index: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ===== Home ===== */
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+
+  ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    list-style: none;
+
+    li {
+      &:not(:last-child) {
+        margin-right: 0.5rem;
+      }
+
+      a {
+        font-size: $h3FontSize;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $colorPrimary;
+        }
+      }
+    }
+
+    + div {
+      margin-top: 0.5rem;
+
+      a {
+        @extend %btn;
+        @extend %btn-primary;
+      }
+    }
+  }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    width: 100%;
+
+    a {
+      display: inline-block;
+      color: $colorDark;
+      font-size: $smallFontSize;
+
+      .mouse {
+        position: relative;
+        display: block;
+        height: 1.75rem;
+        width: 1.25rem;
+        margin: auto;
+        border: 2px solid $colorDark;
+        border-radius: 2rem;
+
+        .wheel {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          height: 0.25rem;
+          width: 0.25rem;
+          border-radius: 50%;
+          background-color: $colorDark;
+          animation: scroll-down 0.3s linear infinite;
+          
+          @keyframes scroll-down {
+            0% { top: 40%; }
+            50% { top: 60%; }
+            100% { top: 30%; }
           }
         }
       }
