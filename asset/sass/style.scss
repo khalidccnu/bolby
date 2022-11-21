@@ -952,3 +952,14 @@ header {
     }
   }
 }
+
+/* ===== Footer ===== */
+footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  background-color: $colorWhite;
+  color: $colorGray;
+  font-size: $smallFontSize;
+  text-transform: capitalize;
+  text-align: center;
+}

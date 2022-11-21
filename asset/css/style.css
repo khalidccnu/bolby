@@ -854,4 +854,15 @@ header nav .navbar-btn .navbar-toggler:hover {
   cursor: pointer;
 }
 
+/* ===== Footer ===== */
+footer {
+  margin-top: auto;
+  padding: 1rem 0;
+  background-color: hsl(252deg, 30%, 100%);
+  color: hsl(252deg, 15%, 65%);
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
