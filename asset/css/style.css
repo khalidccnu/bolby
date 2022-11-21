@@ -10,7 +10,7 @@ header nav #navbar-collapse .navbar-nav .nav-link {
   font-weight: 500;
 }
 
-header nav .navbar-brand, h1, h2, h3 {
+.portfolio .row:nth-child(2) .portfolio-filter button, header nav .navbar-brand, h1, h2, h3 {
   font-family: "Rubik", sans-serif;
   font-weight: 600;
 }
@@ -43,20 +43,20 @@ section:not(#home) {
   padding: 0 2rem;
 }
 
-.title {
+.st-title {
   margin-bottom: 2rem;
 }
 @media screen and (max-width: 767px) {
-  .title {
+  .st-title {
     text-align: center;
   }
 }
-.title h2 {
+.st-title h2 {
   position: relative;
   display: inline-block;
   text-transform: capitalize;
 }
-.title h2:before {
+.st-title h2:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -66,13 +66,13 @@ section:not(#home) {
   background-color: hsl(352deg, 75%, 60%);
 }
 @media screen and (max-width: 767px) {
-  .title h2:before {
+  .st-title h2:before {
     right: 0;
     left: 0;
     margin: auto;
   }
 }
-.title h2:after {
+.st-title h2:after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -82,7 +82,7 @@ section:not(#home) {
   background-color: hsl(352deg, 75%, 60%);
 }
 @media screen and (max-width: 767px) {
-  .title h2:after {
+  .st-title h2:after {
     right: 0;
     left: 0;
     margin: auto;
@@ -228,7 +228,7 @@ header nav #navbar-collapse .navbar-nav {
 }
 @media screen and (max-width: 475px) {
   header nav #navbar-collapse .navbar-nav {
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: auto;
   }
 }
 header nav #navbar-collapse .navbar-nav .nav-link {
@@ -242,7 +242,8 @@ header nav #navbar-collapse .navbar-nav .nav-link.active::after {
   content: "";
   position: absolute;
   bottom: -0.75rem;
-  left: 45%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 0.3rem;
   width: 0.3rem;
   border-radius: 50%;
@@ -577,6 +578,151 @@ header nav .navbar-btn .navbar-toggler:hover {
 }
 .ex-edu .row .col .card .item:not(:last-child) {
   padding-bottom: 0.5rem;
+}
+
+/* ===== Portfolio ===== */
+.portfolio .row:nth-child(2) {
+  display: flex;
+}
+.portfolio .row:nth-child(2) .portfolio-filter {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.portfolio .row:nth-child(2) .portfolio-filter button {
+  border: none;
+  background-color: transparent;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.portfolio .row:nth-child(2) .portfolio-filter button.active {
+  position: relative;
+  color: hsl(352deg, 75%, 60%);
+}
+.portfolio .row:nth-child(2) .portfolio-filter button.active:before {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 0.3rem;
+  width: 0.3rem;
+  border-radius: 50%;
+  background-color: hsl(352deg, 75%, 60%);
+}
+.portfolio .row:nth-child(2) .portfolio-filter button:hover {
+  color: hsl(352deg, 75%, 60%);
+}
+.portfolio .row:nth-child(2) .portfolio-filter button:not(:last-child) {
+  margin-right: 0.5rem;
+}
+.portfolio .row:last-child {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 1rem;
+}
+@media screen and (max-width: 767px) {
+  .portfolio .row:last-child {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+@media screen and (max-width: 475px) {
+  .portfolio .row:last-child {
+    grid-template-columns: auto;
+  }
+}
+.portfolio .row:last-child .portfolio-item {
+  position: relative;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+.portfolio .row:last-child .portfolio-item.show {
+  animation: pi-show 0.5s;
+}
+@keyframes pi-show {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.portfolio .row:last-child .portfolio-item.hide {
+  display: none;
+}
+.portfolio .row:last-child .portfolio-item .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.portfolio .row:last-child .portfolio-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.portfolio .row:last-child .portfolio-item .term {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  display: inline-block;
+  padding: 0.19rem 0.625rem;
+  border-bottom-right-radius: 0.98rem;
+  border-bottom-left-radius: 0.98rem;
+  background-color: hsl(352deg, 75%, 60%);
+  color: #fff;
+  font-size: 0.875rem;
+  transform: translateY(-40px);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.portfolio .row:last-child .portfolio-item .title {
+  position: absolute;
+  top: 3.75rem;
+  left: 1.5rem;
+  color: #fff;
+  font-size: 1.25rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.portfolio .row:last-child .portfolio-item .more {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  height: 1.7rem;
+  width: 1.7rem;
+  border-radius: 50%;
+  background-color: hsl(352deg, 75%, 60%);
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1rem;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.portfolio .row:last-child .portfolio-item:hover .mask {
+  opacity: 1;
+}
+.portfolio .row:last-child .portfolio-item:hover .term {
+  transform: translateY(0);
+  opacity: 1;
+}
+.portfolio .row:last-child .portfolio-item:hover .title {
+  transform: translateY(0);
+  opacity: 1;
+}
+.portfolio .row:last-child .portfolio-item:hover .more {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

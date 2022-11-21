@@ -49,7 +49,7 @@ section:not(#home) {
   padding: 0 2rem;
 }
 
-.title {
+.st-title {
   margin-bottom: 2rem;
 
   @include sm_device {
@@ -235,7 +235,7 @@ header {
         }
 
         @include xxsm_device {
-          grid-template-columns: repeat(1, auto);
+          grid-template-columns: auto;
         }
 
         .nav-link {
@@ -250,7 +250,8 @@ header {
               content: "";
               position: absolute;
               bottom: -0.75rem;
-              left: 45%;
+              left: 50%;
+              transform: translateX(-50%);
               height: 0.3rem;
               width: 0.3rem;
               border-radius: 50%;
@@ -618,6 +619,177 @@ header {
 
           &:not(:last-child) {
             padding-bottom: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ===== Portfolio ===== */
+.portfolio {
+  .row {
+    &:nth-child(2) {
+      display: flex;
+
+      .portfolio-filter {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 2rem;
+        text-align: center;
+
+        button {
+          border: none;
+          background-color: transparent;
+          @extend %font-rb-semi-bold;
+          text-transform: capitalize;
+          cursor: pointer;
+          transition: color 0.3s;
+
+          &.active {
+            position: relative;
+            color: $colorPrimary;
+
+            &:before {
+              content: "";
+              position: absolute;
+              bottom: -0.75rem;
+              left: 50%;
+              transform: translateX(-50%);
+              height: 0.3rem;
+              width: 0.3rem;
+              border-radius: 50%;
+              background-color: $colorPrimary;
+            }
+          }
+
+          &:hover {
+            color: $colorPrimary;
+          }
+
+          &:not(:last-child) {
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-gap: 1rem;
+
+      @include sm_device {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      @include xxsm_device {
+        grid-template-columns: auto;
+      }
+
+      .portfolio-item {
+        position: relative;
+        text-transform: capitalize;
+        overflow: hidden;
+
+        &.show {
+          animation: pi-show 0.5s;
+
+          @keyframes pi-show {
+            0% {
+              transform: scale(0.6);
+              opacity: 0;
+            }
+
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
+          }
+        }
+
+        &.hide {
+          display: none;
+        }
+
+        .mask {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.9);
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        .term {
+          position: absolute;
+          top: 0;
+          left: 1.5rem;
+          display: inline-block;
+          padding: 0.19rem 0.625rem;
+          border-bottom-right-radius: 0.98rem;
+          border-bottom-left-radius: 0.98rem;
+          background-color: $colorPrimary;
+          color: #fff;
+          font-size: $smallFontSize;
+          transform: translateY(-40px);
+          opacity: 0;
+          transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .title {
+          position: absolute;
+          top: 3.75rem;
+          left: 1.5rem;
+          color: #fff;
+          font-size: 1.25rem;
+          transform: translateY(30px);
+          opacity: 0;
+          transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .more {
+          position: absolute;
+          bottom: 1.5rem;
+          left: 1.5rem;
+          height: 1.7rem;
+          width: 1.7rem;
+          border-radius: 50%;
+          background-color: $colorPrimary;
+          color: #fff;
+          font-size: 1.4rem;
+          line-height: 1rem;
+          text-align: center;
+          cursor: pointer;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+
+        &:hover {
+          .mask {
+            opacity: 1;
+          }
+
+          .term {
+            transform: translateY(0);
+            opacity: 1;
+          }
+
+          .title {
+            transform: translateY(0);
+            opacity: 1;
+          }
+
+          .more {
+            opacity: 1;
           }
         }
       }

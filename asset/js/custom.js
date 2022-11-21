@@ -69,6 +69,26 @@ function home_scroll_down() {
     else scrollDown.classList.remove("hide");
 }
 
+// ===== Portfolio =====
+document.querySelectorAll(".portfolio-filter .filter-item").forEach(function(item) {
+    item.addEventListener("click", function() {
+        document.querySelector(".portfolio-filter .active").classList.remove("active");
+        item.classList.add("active");
+
+        let filterValue = item.getAttribute("data-filter");
+
+        document.querySelectorAll(".portfolio-item").forEach(function(item) {
+            if (item.classList.contains(filterValue) || filterValue === "all") {
+                item.classList.remove("hide");
+                item.classList.add("show");
+            } else {
+                item.classList.remove("show");
+                item.classList.add("hide");
+            }
+        });
+    });
+});
+
 // ===== Initial Load =====
 navlink_active();
 header_sticky();
