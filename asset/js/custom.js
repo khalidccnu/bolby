@@ -89,7 +89,7 @@ document.querySelectorAll(".portfolio-filter .filter-item").forEach(function(ite
     });
 });
 
-// ===== Swiper Slider =====
+// ===== Testimonial / Swiper Slider =====
 const swiper = new Swiper(".tm-swiper", {
     spaceBetween: 30,
     autoplay: {
@@ -102,6 +102,12 @@ const swiper = new Swiper(".tm-swiper", {
         clickable: true
     }
 });
+
+// ===== Contact =====
+function contact(item) {
+    if (item.value === "") item.classList.remove("active");
+    else item.classList.add("active");
+}
 
 // ===== Initial Load =====
 navlink_active();

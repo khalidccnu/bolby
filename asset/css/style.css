@@ -5,7 +5,7 @@ body {
   font-weight: 400;
 }
 
-header nav #navbar-collapse .navbar-nav .nav-link {
+.contact .row .col:last-child form button, header nav #navbar-collapse .navbar-nav .nav-link {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
@@ -103,10 +103,6 @@ h3 {
 
 a {
   text-decoration: none;
-}
-
-button, input, textarea {
-  font-size: 1rem;
 }
 
 .btn {
@@ -763,6 +759,99 @@ header nav .navbar-btn .navbar-toggler:hover {
 .testimonial .tm-swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   width: 1.2rem;
   border-radius: 0.5rem;
+}
+
+/* ===== Contact ===== */
+.contact .row {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 575px) {
+  .contact .row {
+    flex-wrap: wrap;
+  }
+}
+.contact .row .col:first-child {
+  flex: 0 0 38%;
+  max-width: 38%;
+  margin-right: auto;
+}
+@media screen and (max-width: 575px) {
+  .contact .row .col:first-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+.contact .row .col:first-child h3 {
+  font-size: 1rem;
+}
+.contact .row .col:first-child span {
+  font-size: 0.875rem;
+}
+.contact .row .col:first-child span a {
+  color: hsl(252deg, 30%, 17%);
+}
+.contact .row .col:last-child {
+  flex: 0 0 58%;
+  max-width: 58%;
+}
+@media screen and (max-width: 575px) {
+  .contact .row .col:last-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+.contact .row .col:last-child form {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 1.5rem;
+}
+.contact .row .col:last-child form .form-group {
+  position: relative;
+}
+@media screen and (max-width: 475px) {
+  .contact .row .col:last-child form .form-group:nth-child(1), .contact .row .col:last-child form .form-group:nth-child(2) {
+    grid-column: 1/-1;
+  }
+}
+.contact .row .col:last-child form .form-group:nth-child(3), .contact .row .col:last-child form .form-group:nth-child(4) {
+  grid-column: 1/-1;
+}
+.contact .row .col:last-child form .form-group .form-control {
+  width: 100%;
+  padding-bottom: 0.1rem;
+  border: none;
+  border-bottom: 1px solid hsl(252deg, 15%, 65%);
+  outline: none;
+  background: transparent;
+  transition: border-bottom-color 0.3s;
+}
+.contact .row .col:last-child form .form-group .form-control#message {
+  resize: none;
+}
+.contact .row .col:last-child form .form-group .form-control + .form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: hsl(252deg, 15%, 65%);
+  font-size: 0.875rem;
+  pointer-events: none;
+  transition: 0.3s;
+}
+.contact .row .col:last-child form .form-group .form-control.active, .contact .row .col:last-child form .form-group .form-control:focus {
+  border-bottom-color: hsl(352deg, 75%, 60%);
+}
+.contact .row .col:last-child form .form-group .form-control.active + .form-label, .contact .row .col:last-child form .form-group .form-control:focus + .form-label {
+  color: hsl(352deg, 75%, 60%);
+  font-size: 0.7rem;
+  transform: translateY(-80%);
+}
+.contact .row .col:last-child form button {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: none;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -115,10 +115,6 @@ a {
   text-decoration: none;
 }
 
-button, input, textarea {
-  font-size: $normalFontSize;
-}
-
 .btn {
   display: inline-block;
   padding: 0.25rem 1rem;
@@ -841,6 +837,116 @@ header {
         &.swiper-pagination-bullet-active {
           width: 1.2rem;
           border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+/* ===== Contact ===== */
+.contact {
+  .row {
+    display: flex;
+    align-items: center;
+
+    @include xsm_device {
+      flex-wrap: wrap;
+    }
+
+    .col {
+      &:first-child {
+        flex: 0 0 38%;
+        max-width: 38%;
+        margin-right: auto;
+
+        @include xsm_device {
+          flex: 0 0 100%;
+          max-width: 100%;
+          margin-bottom: 2rem;
+        }
+
+        h3 {
+          font-size: $normalFontSize;
+        }
+
+        span {
+          font-size: $smallFontSize;
+
+          a {
+            color: $colorDark;
+          }
+        }
+      }
+
+      &:last-child {
+        flex: 0 0 58%;
+        max-width: 58%;
+
+        @include xsm_device {
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+
+        form {
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          grid-gap: 1.5rem;
+
+          .form-group {
+            position: relative;
+
+            @include xxsm_device {
+              &:nth-child(1), &:nth-child(2) {
+                grid-column: 1 / -1;
+              }
+            }
+
+            &:nth-child(3), &:nth-child(4) {
+              grid-column: 1 / -1;
+            }
+
+            .form-control {
+              width: 100%;
+              padding-bottom: 0.1rem;
+              border: none;
+              border-bottom: 1px solid $colorGray;
+              outline: none;
+              background: transparent;
+              transition: border-bottom-color 0.3s;
+
+              &#message {
+                resize: none;
+              }
+
+              & + .form-label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                color: $colorGray;
+                font-size: $smallFontSize;
+                pointer-events: none;
+                transition: 0.3s;
+              }
+
+              &.active, &:focus {
+                border-bottom-color: $colorPrimary;
+
+                & + .form-label {
+                  color: $colorPrimary;
+                  font-size: $xSmallFontSize;
+                  transform: translateY(-80%);
+                }
+              }
+            }
+          }
+
+          button {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            border: none;
+            @extend %font-rb-medium;
+            cursor: pointer;
+          }
         }
       }
     }
