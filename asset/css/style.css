@@ -32,7 +32,7 @@ body {
   line-height: 1.7;
 }
 
-section:not(#home) {
+section:not(#home), #testimonial {
   padding: 3.75rem 0;
 }
 
@@ -723,6 +723,46 @@ header nav .navbar-btn .navbar-toggler:hover {
 }
 .portfolio .row:last-child .portfolio-item:hover .more {
   opacity: 1;
+}
+
+/* ===== Testimonial ===== */
+.testimonial .tm-swiper {
+  max-width: 700px;
+  margin: auto;
+}
+.testimonial .tm-swiper .item {
+  text-align: center;
+}
+.testimonial .tm-swiper .item img {
+  height: 5.6rem;
+  width: 5.6rem;
+  border-radius: 50%;
+}
+.testimonial .tm-swiper .item h3 {
+  text-transform: capitalize;
+}
+.testimonial .tm-swiper .item span {
+  color: hsl(252deg, 15%, 65%);
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+.testimonial .tm-swiper .item p {
+  margin-top: 1rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: hsl(252deg, 30%, 100%);
+}
+.testimonial .tm-swiper .swiper-pagination {
+  position: initial;
+  margin-top: 1rem;
+}
+.testimonial .tm-swiper .swiper-pagination .swiper-pagination-bullet {
+  background-color: hsl(352deg, 75%, 60%);
+  opacity: 1;
+}
+.testimonial .tm-swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 1.2rem;
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

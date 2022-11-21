@@ -89,6 +89,20 @@ document.querySelectorAll(".portfolio-filter .filter-item").forEach(function(ite
     });
 });
 
+// ===== Swiper Slider =====
+const swiper = new Swiper(".tm-swiper", {
+    spaceBetween: 30,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: true
+    },
+    loop: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+    }
+});
+
 // ===== Initial Load =====
 navlink_active();
 header_sticky();
