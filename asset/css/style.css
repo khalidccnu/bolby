@@ -5,7 +5,7 @@ body {
   font-weight: 400;
 }
 
-.contact .row .col:last-child form button, header nav #navbar-collapse .navbar-nav .nav-link {
+.tm-customize .card .background .choose-bg > div label, .contact .row .col:last-child form button, header nav #navbar-collapse .navbar-nav .nav-link {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
@@ -22,13 +22,43 @@ body {
   box-sizing: border-box;
 }
 
+:root {
+  /* ===== Color ===== */
+  --color-primary-Hue: 352;
+  --color-light-lightness: 92%;
+  --color-white-lightness: 100%;
+  --color-dark-lightness: 17%;
+  --color-primary: hsl(var(--color-primary-Hue), 75%, 60%);
+  --color-light: hsl(252, 30%, var(--color-light-lightness));
+  --color-white: hsl(252, 30%, var(--color-white-lightness));
+  --color-gray: hsl(252, 15%, 65%);
+  --color-dark: hsl(252, 30%, var(--color-dark-lightness));
+  /* ===== Font ===== */
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.75rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --x-small-font-size: 0.7rem;
+}
+@media screen and (max-width: 767px) {
+  :root {
+    /* ===== Font ===== */
+    --h1-font-size: 1.75rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: hsl(252deg, 30%, 92%);
-  color: hsl(252deg, 30%, 17%);
-  font-size: 1rem;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-size: var(--normal-font-size);
   line-height: 1.7;
 }
 
@@ -63,7 +93,7 @@ section:not(#home), #testimonial {
   left: 2px;
   height: 2px;
   width: 65%;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
 }
 @media screen and (max-width: 767px) {
   .st-title h2:before {
@@ -79,7 +109,7 @@ section:not(#home), #testimonial {
   left: 2px;
   height: 2px;
   width: 35%;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
 }
 @media screen and (max-width: 767px) {
   .st-title h2:after {
@@ -90,15 +120,15 @@ section:not(#home), #testimonial {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: var(--h1-font-size);
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: var(--h2-font-size);
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: var(--h3-font-size);
 }
 
 a {
@@ -112,7 +142,7 @@ a {
 }
 
 .btn-primary {
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
   color: #fff;
   transform: perspective(1px) translateZ(0);
 }
@@ -140,7 +170,7 @@ header {
   z-index: 10;
 }
 header.sticky {
-  background-color: hsl(252deg, 30%, 92%);
+  background-color: var(--color-light);
   box-shadow: 0 4px 20px hsla(207deg, 24%, 35%, 0.1);
 }
 @media screen and (max-width: 767px) {
@@ -163,13 +193,13 @@ header nav {
     margin: 0 auto;
     padding: 0.5rem 1.2rem;
     border-radius: 2rem;
-    background-color: hsl(252deg, 30%, 92%);
+    background-color: var(--color-light);
     box-shadow: 0 4px 20px hsla(207deg, 24%, 35%, 0.1);
   }
 }
 header nav .navbar-brand {
   position: relative;
-  font-size: 1.75rem;
+  font-size: var(--h2-font-size);
   letter-spacing: 0.125rem;
 }
 header nav .navbar-brand::after {
@@ -180,7 +210,7 @@ header nav .navbar-brand::after {
   height: 0.3rem;
   width: 0.3rem;
   border-radius: 50%;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
 }
 header nav #navbar-collapse {
   margin-left: auto;
@@ -194,7 +224,7 @@ header nav #navbar-collapse {
     max-width: 70%;
     margin-right: auto;
     border-radius: 1rem;
-    background-color: hsl(252deg, 30%, 92%);
+    background-color: var(--color-light);
     box-shadow: 0 4px 20px hsla(207deg, 24%, 35%, 0.1);
     transition: bottom 0.3s;
   }
@@ -228,7 +258,7 @@ header nav #navbar-collapse .navbar-nav {
   }
 }
 header nav #navbar-collapse .navbar-nav .nav-link {
-  color: hsl(252deg, 30%, 17%);
+  color: var(--color-dark);
   transition: color 0.3s;
 }
 header nav #navbar-collapse .navbar-nav .nav-link.active {
@@ -243,10 +273,10 @@ header nav #navbar-collapse .navbar-nav .nav-link.active::after {
   height: 0.3rem;
   width: 0.3rem;
   border-radius: 50%;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
 }
 header nav #navbar-collapse .navbar-nav .nav-link:hover {
-  color: hsl(352deg, 75%, 60%);
+  color: var(--color-primary);
 }
 @media screen and (max-width: 767px) {
   header nav #navbar-collapse .navbar-nav .nav-link {
@@ -278,7 +308,7 @@ header nav .navbar-btn .tm-switch {
   transition: color 0.3s;
 }
 header nav .navbar-btn .tm-switch:hover {
-  color: hsl(352deg, 75%, 60%);
+  color: var(--color-primary);
 }
 header nav .navbar-btn .navbar-toggler {
   display: none;
@@ -287,7 +317,7 @@ header nav .navbar-btn .navbar-toggler {
   transition: color 0.3s;
 }
 header nav .navbar-btn .navbar-toggler:hover {
-  color: hsl(352deg, 75%, 60%);
+  color: var(--color-primary);
 }
 @media screen and (max-width: 767px) {
   header nav .navbar-btn .navbar-toggler {
@@ -317,11 +347,11 @@ header nav .navbar-btn .navbar-toggler:hover {
   margin-right: 0.5rem;
 }
 .home ul li a {
-  font-size: 1.25rem;
+  font-size: var(--h3-font-size);
   transition: color 0.3s;
 }
 .home ul li a:hover {
-  color: hsl(352deg, 75%, 60%);
+  color: var(--color-primary);
 }
 .home ul + div {
   margin-top: 0.5rem;
@@ -340,8 +370,8 @@ header nav .navbar-btn .navbar-toggler:hover {
 }
 .home .scroll-down a {
   display: inline-block;
-  color: hsl(252deg, 30%, 17%);
-  font-size: 0.875rem;
+  color: var(--color-dark);
+  font-size: var(--small-font-size);
 }
 .home .scroll-down a .mouse {
   position: relative;
@@ -349,7 +379,7 @@ header nav .navbar-btn .navbar-toggler:hover {
   height: 1.75rem;
   width: 1.25rem;
   margin: auto;
-  border: 2px solid hsl(252deg, 30%, 17%);
+  border: 2px solid var(--color-dark);
   border-radius: 2rem;
 }
 .home .scroll-down a .mouse .wheel {
@@ -360,7 +390,7 @@ header nav .navbar-btn .navbar-toggler:hover {
   height: 0.25rem;
   width: 0.25rem;
   border-radius: 50%;
-  background-color: hsl(252deg, 30%, 17%);
+  background-color: var(--color-dark);
   animation: scroll-down 2s linear infinite;
 }
 @keyframes scroll-down {
@@ -409,7 +439,7 @@ header nav .navbar-btn .navbar-toggler:hover {
 .about .row .about-content .card {
   padding: 2rem;
   border-radius: 2rem;
-  background-color: hsl(252deg, 30%, 100%);
+  background-color: var(--color-white);
 }
 .about .row .about-content .card .description {
   flex: 0 0 48%;
@@ -451,7 +481,7 @@ header nav .navbar-btn .navbar-toggler:hover {
   height: 0.45rem;
   width: 100%;
   border-radius: 2rem;
-  background-color: hsl(252deg, 30%, 92%);
+  background-color: var(--color-light);
 }
 .about .row .about-content .card .skill .skill-item .progress .in {
   position: absolute;
@@ -542,7 +572,7 @@ header nav .navbar-btn .navbar-toggler:hover {
 .ex-edu .row .col .card {
   padding: 1.5rem 2rem;
   border-radius: 2rem;
-  background-color: hsl(252deg, 30%, 100%);
+  background-color: var(--color-white);
 }
 .ex-edu .row .col .card .item {
   position: relative;
@@ -555,19 +585,19 @@ header nav .navbar-btn .navbar-toggler:hover {
   left: 0.7rem;
   height: 100%;
   width: 1px;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
 }
 .ex-edu .row .col .card .item .lni-briefcase, .ex-edu .row .col .card .item .lni-graduation {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: hsl(252deg, 30%, 100%);
-  color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-white);
+  color: var(--color-primary);
   font-size: 1.5rem;
 }
 .ex-edu .row .col .card .item h3:nth-child(2) {
-  color: hsl(252deg, 15%, 65%);
-  font-size: 0.875rem;
+  color: var(--color-gray);
+  font-size: var(--small-font-size);
 }
 .ex-edu .row .col .card .item h3:nth-child(2) .lni-calendar {
   margin-right: 0.3rem;
@@ -589,13 +619,14 @@ header nav .navbar-btn .navbar-toggler:hover {
 .portfolio .row:nth-child(2) .portfolio-filter button {
   border: none;
   background-color: transparent;
+  color: var(--color-dark);
   text-transform: capitalize;
   cursor: pointer;
   transition: color 0.3s;
 }
 .portfolio .row:nth-child(2) .portfolio-filter button.active {
   position: relative;
-  color: hsl(352deg, 75%, 60%);
+  color: var(--color-primary);
 }
 .portfolio .row:nth-child(2) .portfolio-filter button.active:before {
   content: "";
@@ -606,10 +637,10 @@ header nav .navbar-btn .navbar-toggler:hover {
   height: 0.3rem;
   width: 0.3rem;
   border-radius: 50%;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
 }
 .portfolio .row:nth-child(2) .portfolio-filter button:hover {
-  color: hsl(352deg, 75%, 60%);
+  color: var(--color-primary);
 }
 .portfolio .row:nth-child(2) .portfolio-filter button:not(:last-child) {
   margin-right: 0.5rem;
@@ -673,9 +704,9 @@ header nav .navbar-btn .navbar-toggler:hover {
   padding: 0.19rem 0.625rem;
   border-bottom-right-radius: 0.98rem;
   border-bottom-left-radius: 0.98rem;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
   color: #fff;
-  font-size: 0.875rem;
+  font-size: var(--small-font-size);
   transform: translateY(-40px);
   opacity: 0;
   transition: transform 0.3s, opacity 0.3s;
@@ -697,7 +728,7 @@ header nav .navbar-btn .navbar-toggler:hover {
   height: 1.7rem;
   width: 1.7rem;
   border-radius: 50%;
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
   color: #fff;
   font-size: 1.4rem;
   line-height: 1rem;
@@ -738,22 +769,22 @@ header nav .navbar-btn .navbar-toggler:hover {
   text-transform: capitalize;
 }
 .testimonial .tm-swiper .item span {
-  color: hsl(252deg, 15%, 65%);
-  font-size: 0.875rem;
+  color: var(--color-gray);
+  font-size: var(--small-font-size);
   text-transform: capitalize;
 }
 .testimonial .tm-swiper .item p {
   margin-top: 1rem;
   padding: 2rem;
   border-radius: 2rem;
-  background-color: hsl(252deg, 30%, 100%);
+  background-color: var(--color-white);
 }
 .testimonial .tm-swiper .swiper-pagination {
   position: initial;
   margin-top: 1rem;
 }
 .testimonial .tm-swiper .swiper-pagination .swiper-pagination-bullet {
-  background-color: hsl(352deg, 75%, 60%);
+  background-color: var(--color-primary);
   opacity: 1;
 }
 .testimonial .tm-swiper .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -784,13 +815,13 @@ header nav .navbar-btn .navbar-toggler:hover {
   }
 }
 .contact .row .col:first-child h3 {
-  font-size: 1rem;
+  font-size: var(--normal-font-size);
 }
 .contact .row .col:first-child span {
-  font-size: 0.875rem;
+  font-size: var(--small-font-size);
 }
 .contact .row .col:first-child span a {
-  color: hsl(252deg, 30%, 17%);
+  color: var(--color-dark);
 }
 .contact .row .col:last-child {
   flex: 0 0 58%;
@@ -822,9 +853,10 @@ header nav .navbar-btn .navbar-toggler:hover {
   width: 100%;
   padding-bottom: 0.1rem;
   border: none;
-  border-bottom: 1px solid hsl(252deg, 15%, 65%);
+  border-bottom: 1px solid var(--color-gray);
   outline: none;
-  background: transparent;
+  background-color: transparent;
+  color: var(--color-dark);
   transition: border-bottom-color 0.3s;
 }
 .contact .row .col:last-child form .form-group .form-control#message {
@@ -834,17 +866,17 @@ header nav .navbar-btn .navbar-toggler:hover {
   position: absolute;
   top: 0;
   left: 0;
-  color: hsl(252deg, 15%, 65%);
-  font-size: 0.875rem;
+  color: var(--color-gray);
+  font-size: var(--small-font-size);
   pointer-events: none;
   transition: 0.3s;
 }
 .contact .row .col:last-child form .form-group .form-control.active, .contact .row .col:last-child form .form-group .form-control:focus {
-  border-bottom-color: hsl(352deg, 75%, 60%);
+  border-bottom-color: var(--color-primary);
 }
 .contact .row .col:last-child form .form-group .form-control.active + .form-label, .contact .row .col:last-child form .form-group .form-control:focus + .form-label {
-  color: hsl(352deg, 75%, 60%);
-  font-size: 0.7rem;
+  color: var(--color-primary);
+  font-size: var(--x-small-font-size);
   transform: translateY(-80%);
 }
 .contact .row .col:last-child form button {
@@ -858,11 +890,174 @@ header nav .navbar-btn .navbar-toggler:hover {
 footer {
   margin-top: auto;
   padding: 1rem 0;
-  background-color: hsl(252deg, 30%, 100%);
-  color: hsl(252deg, 15%, 65%);
-  font-size: 0.875rem;
+  background-color: var(--color-white);
+  color: var(--color-gray);
+  font-size: var(--small-font-size);
   text-transform: capitalize;
   text-align: center;
+}
+
+/* ===== Theme Customize ===== */
+.tm-customize {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  place-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: var(--small-font-size);
+  text-align: center;
+  z-index: 999;
+}
+.tm-customize .card {
+  position: relative;
+  width: 40%;
+  max-width: 500px;
+  padding: 3rem;
+  border-radius: 2rem;
+  background-color: var(--color-white);
+}
+@media screen and (max-width: 991px) {
+  .tm-customize .card {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 767px) {
+  .tm-customize .card {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 575px) {
+  .tm-customize .card {
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 475px) {
+  .tm-customize .card {
+    width: 95vw;
+  }
+}
+.tm-customize .card .close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.tm-customize .card .close:hover {
+  color: var(--color-primary);
+}
+.tm-customize .card h2 {
+  margin-bottom: 0.5rem;
+  line-height: 2rem;
+}
+.tm-customize .card .font-size {
+  margin-top: 1rem;
+}
+.tm-customize .card .font-size > div {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  background-color: var(--color-light);
+}
+.tm-customize .card .font-size > div .choose-size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 0.35rem;
+  width: 100%;
+  margin: 0 1rem;
+  border-radius: 1rem;
+  background-color: hsl(252deg, 100%, 90%);
+}
+.tm-customize .card .font-size > div .choose-size span {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: hsl(252deg, 100%, 90%);
+  cursor: pointer;
+}
+.tm-customize .card .font-size > div .choose-size span.active {
+  background-color: var(--color-primary);
+}
+.tm-customize .card .color {
+  margin-top: 1rem;
+}
+.tm-customize .card .color .choose-color {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-radius: 2rem;
+  background-color: var(--color-light);
+}
+.tm-customize .card .color .choose-color span {
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  cursor: pointer;
+}
+.tm-customize .card .color .choose-color span:first-child {
+  background-color: hsl(252deg, 75%, 60%);
+}
+.tm-customize .card .color .choose-color span:nth-child(2) {
+  background-color: hsl(52deg, 75%, 60%);
+}
+.tm-customize .card .color .choose-color span:nth-child(3) {
+  background-color: hsl(352deg, 75%, 60%);
+}
+.tm-customize .card .color .choose-color span:nth-child(4) {
+  background-color: hsl(152deg, 75%, 60%);
+}
+.tm-customize .card .color .choose-color span:last-child {
+  background-color: hsl(202deg, 75%, 60%);
+}
+.tm-customize .card .color .choose-color span.active {
+  border: 5px solid #fff;
+}
+.tm-customize .card .background {
+  margin-top: 1rem;
+}
+.tm-customize .card .background .choose-bg {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.tm-customize .card .background .choose-bg > div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 0.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.tm-customize .card .background .choose-bg > div.bg-1 {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+.tm-customize .card .background .choose-bg > div.bg-2 {
+  background-color: hsl(252deg, 30%, 17%);
+  color: #fff;
+}
+.tm-customize .card .background .choose-bg > div.bg-3 {
+  background-color: hsl(252deg, 30%, 5%);
+  color: #fff;
+}
+.tm-customize .card .background .choose-bg > div.active {
+  border: 2px solid var(--color-primary);
+}
+.tm-customize .card .background .choose-bg > div span {
+  height: 1.4rem;
+  width: 1.4rem;
+  border: 2px solid var(--color-gray);
+  border-radius: 50%;
+}
+.tm-customize .card .background .choose-bg > div label {
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */

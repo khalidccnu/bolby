@@ -12,6 +12,12 @@
 }
 
 // ===== Responsive
+@mixin md_device {
+  @media screen and (max-width: 991px) {
+    @content;
+  }
+}
+
 @mixin sm_device {
   @media screen and (max-width: 767px) {
     @content;

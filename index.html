@@ -35,7 +35,7 @@
                 </ul>
             </div>
             <div class="navbar-btn">
-                <i class="lni lni-pallet tm-switch"></i>
+                <i class="lni lni-pallet tm-switch" onclick="openTmPallet()"></i>
                 <i class="lni lni-grid-alt navbar-toggler" onclick="navbar_toggle('navbar-collapse')"></i>
             </div>
         </nav>
@@ -369,6 +369,57 @@
         <span>&copy; 2022 all rights reserved || bolby</span>
     </div>
 </footer>
+
+<!-- Theme Customize -->
+<div class="tm-customize">
+    <div class="card">
+        <span class="close" onclick="closeTmPallet()">
+            <i class="lni lni-close"></i>
+        </span>
+        <h2>Customize your view</h2>
+        <p>Manage your font size, color and background</p>
+        <div class="font-size">
+            <h3>Font Size</h3>
+            <div>
+                <h6>Aa</h6>
+                <div class="choose-size">
+                    <span class="font-size-1"></span>
+                    <span class="font-size-2"></span>
+                    <span class="font-size-3 active"></span>
+                    <span class="font-size-4"></span>
+                </div>
+                <h3>Aa</h3>
+            </div>
+        </div>
+        <div class="color">
+            <h3>Color</h3>
+            <div class="choose-color">
+                <span class="color-1"></span>
+                <span class="color-2"></span>
+                <span class="color-3 active"></span>
+                <span class="color-4"></span>
+                <span class="color-5"></span>
+            </div>
+        </div>
+        <div class="background">
+            <h3>Background</h3>
+            <div class="choose-bg">
+                <div class="bg-1 active">
+                    <span></span>
+                    <label>Light</label>
+                </div>
+                <div class="bg-2">
+                    <span></span>
+                    <label>Dim</label>
+                </div>
+                <div class="bg-3">
+                    <span></span>
+                    <label>Dark</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Swiper Slider JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>

@@ -1,4 +1,3 @@
-@import "variable";
 @import "mixin";
 
 /* ===== Font ===== */
@@ -27,14 +26,44 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* ===== Color ===== */
+  --color-primary-Hue: 352;
+  --color-light-lightness: 92%;
+  --color-white-lightness: 100%;
+  --color-dark-lightness: 17%;
+  --color-primary: hsl(var(--color-primary-Hue), 75%, 60%);
+  --color-light: hsl(252, 30%, var(--color-light-lightness));
+  --color-white: hsl(252, 30%, var(--color-white-lightness));
+  --color-gray: hsl(252, 15%, 65%);
+  --color-dark: hsl(252, 30%, var(--color-dark-lightness));
+
+  /* ===== Font ===== */
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.75rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --x-small-font-size: 0.7rem;
+
+  @include sm_device {
+    /* ===== Font ===== */
+    --h1-font-size: 1.75rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+  }
+}
+
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $colorLight;
-  color: $colorDark;
+  background-color: var(--color-light);
+  color: var(--color-dark);
   @extend %font-rb-regular;
-  font-size: $normalFontSize;
+  font-size: var(--normal-font-size);
   line-height: 1.7;
 }
 
@@ -68,7 +97,7 @@ section:not(#home), #testimonial {
       left: 2px;
       height: 2px;
       width: 65%;
-      background-color: $colorPrimary;
+      background-color: var(--color-primary);
 
       @include sm_device {
         right: 0;
@@ -84,7 +113,7 @@ section:not(#home), #testimonial {
       left: 2px;
       height: 2px;
       width: 35%;
-      background-color: $colorPrimary;
+      background-color: var(--color-primary);
 
       @include sm_device {
         right: 0;
@@ -96,15 +125,15 @@ section:not(#home), #testimonial {
 }
 
 h1 {
-  font-size: $h1FontSize;
+  font-size: var(--h1-font-size);
 }
 
 h2 {
-  font-size: $h2FontSize;
+  font-size: var(--h2-font-size);
 }
 
 h3 {
-  font-size: $h3FontSize;
+  font-size: var(--h3-font-size);
 }
 
 h1, h2, h3 {
@@ -122,7 +151,7 @@ a {
 }
 
 .btn-primary {
-  background-color: $colorPrimary;
+  background-color: var(--color-primary);
   color: #fff;
   transform: perspective(1px) translateZ(0);
 
@@ -148,7 +177,7 @@ header {
   z-index: 10;
 
   &.sticky {
-    background-color: $colorLight;
+    background-color: var(--color-light);
     box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
   }
 
@@ -170,14 +199,14 @@ header {
       margin: 0 auto;
       padding: 0.5rem 1.2rem;
       border-radius: 2rem;
-      background-color: $colorLight;
+      background-color: var(--color-light);
       box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
     }
 
     .navbar-brand {
       position: relative;
       @extend %font-rb-semi-bold;
-      font-size: $h2FontSize;
+      font-size: var(--h2-font-size);
       letter-spacing: 0.125rem;
 
       &::after {
@@ -188,7 +217,7 @@ header {
         height: 0.3rem;
         width: 0.3rem;
         border-radius: 50%;
-        background-color: $colorPrimary;
+        background-color: var(--color-primary);
       }
     }
 
@@ -203,7 +232,7 @@ header {
         max-width: 70%;
         margin-right: auto;
         border-radius: 1rem;
-        background-color: $colorLight;
+        background-color: var(--color-light);
         box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
         transition: bottom 0.3s;
 
@@ -235,7 +264,7 @@ header {
         }
 
         .nav-link {
-          color: $colorDark;
+          color: var(--color-dark);
           @extend %font-rb-medium;
           transition: color 0.3s;
 
@@ -251,12 +280,12 @@ header {
               height: 0.3rem;
               width: 0.3rem;
               border-radius: 50%;
-              background-color: $colorPrimary;
+              background-color: var(--color-primary);
             }
           }
 
           &:hover {
-            color: $colorPrimary;
+            color: var(--color-primary);
           }
 
           @include sm_device {
@@ -290,7 +319,7 @@ header {
         transition: color 0.3s;
 
         &:hover {
-          color: $colorPrimary;
+          color: var(--color-primary);
         }
       }
 
@@ -301,7 +330,7 @@ header {
         transition: color 0.3s;
 
         &:hover {
-          color: $colorPrimary;
+          color: var(--color-primary);
         }
 
         @include sm_device {
@@ -337,11 +366,11 @@ header {
       }
 
       a {
-        font-size: $h3FontSize;
+        font-size: var(--h3-font-size);
         transition: color 0.3s;
 
         &:hover {
-          color: $colorPrimary;
+          color: var(--color-primary);
         }
       }
     }
@@ -366,8 +395,8 @@ header {
 
     a {
       display: inline-block;
-      color: $colorDark;
-      font-size: $smallFontSize;
+      color: var(--color-dark);
+      font-size: var(--small-font-size);
 
       .mouse {
         position: relative;
@@ -375,7 +404,7 @@ header {
         height: 1.75rem;
         width: 1.25rem;
         margin: auto;
-        border: 2px solid $colorDark;
+        border: 2px solid var(--color-dark);
         border-radius: 2rem;
 
         .wheel {
@@ -386,7 +415,7 @@ header {
           height: 0.25rem;
           width: 0.25rem;
           border-radius: 50%;
-          background-color: $colorDark;
+          background-color: var(--color-dark);
           animation: scroll-down 2s linear infinite;
           
           @keyframes scroll-down {
@@ -433,7 +462,7 @@ header {
       .card {
         padding: 2rem;
         border-radius: 2rem;
-        background-color: $colorWhite;
+        background-color: var(--color-white);
 
         .description {
           flex: 0 0 48%;
@@ -474,7 +503,7 @@ header {
               height: 0.45rem;
               width: 100%;
               border-radius: 2rem;
-              background-color: $colorLight;
+              background-color: var(--color-light);
 
               .in {
                 position: absolute;
@@ -579,7 +608,7 @@ header {
       .card {
         padding: 1.5rem 2rem;
         border-radius: 2rem;
-        background-color: $colorWhite;
+        background-color: var(--color-white);
 
         .item {
           position: relative;
@@ -592,21 +621,21 @@ header {
             left: 0.7rem;
             height: 100%;
             width: 1px;
-            background-color: $colorPrimary;
+            background-color: var(--color-primary);
           }
 
           .lni-briefcase, .lni-graduation {
             position: absolute;
             top: 0;
             left: 0;
-            background-color: $colorWhite;
-            color: $colorPrimary;
+            background-color: var(--color-white);
+            color: var(--color-primary);
             font-size: 1.5rem;
           }
 
           h3:nth-child(2) {
-            color: $colorGray;
-            font-size: $smallFontSize;
+            color: var(--color-gray);
+            font-size: var(--small-font-size);
 
             .lni-calendar {
               margin-right: 0.3rem;
@@ -637,6 +666,7 @@ header {
         button {
           border: none;
           background-color: transparent;
+          color: var(--color-dark);
           @extend %font-rb-semi-bold;
           text-transform: capitalize;
           cursor: pointer;
@@ -644,7 +674,7 @@ header {
 
           &.active {
             position: relative;
-            color: $colorPrimary;
+            color: var(--color-primary);
 
             &:before {
               content: "";
@@ -655,12 +685,12 @@ header {
               height: 0.3rem;
               width: 0.3rem;
               border-radius: 50%;
-              background-color: $colorPrimary;
+              background-color: var(--color-primary);
             }
           }
 
           &:hover {
-            color: $colorPrimary;
+            color: var(--color-primary);
           }
 
           &:not(:last-child) {
@@ -733,9 +763,9 @@ header {
           padding: 0.19rem 0.625rem;
           border-bottom-right-radius: 0.98rem;
           border-bottom-left-radius: 0.98rem;
-          background-color: $colorPrimary;
+          background-color: var(--color-primary);
           color: #fff;
-          font-size: $smallFontSize;
+          font-size: var(--small-font-size);
           transform: translateY(-40px);
           opacity: 0;
           transition: transform 0.3s, opacity 0.3s;
@@ -759,7 +789,7 @@ header {
           height: 1.7rem;
           width: 1.7rem;
           border-radius: 50%;
-          background-color: $colorPrimary;
+          background-color: var(--color-primary);
           color: #fff;
           font-size: 1.4rem;
           line-height: 1rem;
@@ -813,8 +843,8 @@ header {
       }
 
       span {
-        color: $colorGray;
-        font-size: $smallFontSize;
+        color: var(--color-gray);
+        font-size: var(--small-font-size);
         text-transform: capitalize;
       }
 
@@ -822,7 +852,7 @@ header {
         margin-top: 1rem;
         padding: 2rem;
         border-radius: 2rem;
-        background-color: $colorWhite;
+        background-color: var(--color-white);
       }
     }
 
@@ -831,7 +861,7 @@ header {
       margin-top: 1rem;
 
       .swiper-pagination-bullet {
-        background-color: $colorPrimary;
+        background-color: var(--color-primary);
         opacity: 1;
 
         &.swiper-pagination-bullet-active {
@@ -866,14 +896,14 @@ header {
         }
 
         h3 {
-          font-size: $normalFontSize;
+          font-size: var(--normal-font-size);
         }
 
         span {
-          font-size: $smallFontSize;
+          font-size: var(--small-font-size);
 
           a {
-            color: $colorDark;
+            color: var(--color-dark);
           }
         }
       }
@@ -909,9 +939,10 @@ header {
               width: 100%;
               padding-bottom: 0.1rem;
               border: none;
-              border-bottom: 1px solid $colorGray;
+              border-bottom: 1px solid var(--color-gray);
               outline: none;
-              background: transparent;
+              background-color: transparent;
+              color: var(--color-dark);
               transition: border-bottom-color 0.3s;
 
               &#message {
@@ -922,18 +953,18 @@ header {
                 position: absolute;
                 top: 0;
                 left: 0;
-                color: $colorGray;
-                font-size: $smallFontSize;
+                color: var(--color-gray);
+                font-size: var(--small-font-size);
                 pointer-events: none;
                 transition: 0.3s;
               }
 
               &.active, &:focus {
-                border-bottom-color: $colorPrimary;
+                border-bottom-color: var(--color-primary);
 
                 & + .form-label {
-                  color: $colorPrimary;
-                  font-size: $xSmallFontSize;
+                  color: var(--color-primary);
+                  font-size: var(--x-small-font-size);
                   transform: translateY(-80%);
                 }
               }
@@ -957,9 +988,196 @@ header {
 footer {
   margin-top: auto;
   padding: 1rem 0;
-  background-color: $colorWhite;
-  color: $colorGray;
-  font-size: $smallFontSize;
+  background-color: var(--color-white);
+  color: var(--color-gray);
+  font-size: var(--small-font-size);
   text-transform: capitalize;
   text-align: center;
+}
+
+/* ===== Theme Customize ===== */
+.tm-customize {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  place-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: var(--small-font-size);
+  text-align: center;
+  z-index: 999;
+
+  .card {
+    position: relative;
+    width: 40%;
+    max-width: 500px;
+    padding: 3rem;
+    border-radius: 2rem;
+    background-color: var(--color-white);
+
+    @include md_device {
+      width: 50vw;
+    }
+
+    @include sm_device {
+      width: 70vw;
+    }
+
+    @include xsm_device {
+      width: 85vw;
+    }
+
+    @include xxsm_device {
+      width: 95vw;
+    }
+
+    .close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+
+    h2 {
+      margin-bottom: 0.5rem;
+      line-height: 2rem;
+    }
+
+    .font-size {
+      margin-top: 1rem;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        border-radius: 2rem;
+        background-color: var(--color-light);
+
+        .choose-size {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 0.35rem;
+          width: 100%;
+          margin: 0 1rem;
+          border-radius: 1rem;
+          background-color: hsl(252, 100%, 90%);
+
+          span {
+            height: 1rem;
+            width: 1rem;
+            border-radius: 50%;
+            background-color: hsl(252, 100%, 90%);
+            cursor: pointer;
+
+            &.active {
+              background-color: var(--color-primary);
+            }
+          }
+        }
+      }
+    }
+
+    .color {
+      margin-top: 1rem;
+
+      .choose-color {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.6rem 1rem;
+        border-radius: 2rem;
+        background-color: var(--color-light);
+
+        span {
+          height: 1.8rem;
+          width: 1.8rem;
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          cursor: pointer;
+
+          &:first-child {
+            background-color: hsl(252, 75%, 60%);
+          }
+
+          &:nth-child(2) {
+            background-color: hsl(52, 75%, 60%);
+          }
+
+          &:nth-child(3) {
+            background-color: hsl(352, 75%, 60%);
+          }
+
+          &:nth-child(4) {
+            background-color: hsl(152, 75%, 60%);
+          }
+
+          &:last-child {
+            background-color: hsl(202, 75%, 60%);
+          }
+
+          &.active {
+            border: 5px solid #fff;
+          }
+        }
+      }
+    }
+
+    .background {
+      margin-top: 1rem;
+
+      .choose-bg {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        & > div {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 100%;
+          padding: 0.8rem 0.20rem;
+          border-radius: 0.4rem;
+          cursor: pointer;
+
+          &.bg-1 {
+            background-color: var(--color-light);
+            color: var(--color-dark);
+          }
+
+          &.bg-2 {
+            background-color: hsl(252, 30%, 17%);
+            color: #fff;
+          }
+
+          &.bg-3 {
+            background-color: hsl(252, 30%, 5%);
+            color: #fff;
+          }
+
+          &.active {
+            border: 2px solid var(--color-primary);
+          }
+
+          span {
+            height: 1.4rem;
+            width: 1.4rem;
+            border: 2px solid var(--color-gray);
+            border-radius: 50%;
+          }
+
+          label {
+            @extend %font-rb-medium;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
 }
