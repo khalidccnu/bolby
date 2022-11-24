@@ -1,3 +1,28 @@
+/* ====================================================================
+            Template Name: Bolby
+            Template URI: https://projects.khalidmahmud.me/bolby
+            Description:
+            Author: S.M. Khalid Mahmud
+            Author URI: https://khalidmahmud.me
+            Support: hello@khalidmahmud.me
+            Version: 1.0
+   ==================================================================== */
+/* ====================================================================
+            INDEX
+            =========
+            >> Font
+            >> Common
+            >> Header
+            >> Home
+            >> About
+            >> Service
+            >> Experience / Education
+            >> Portfolio
+            >> Testimonial
+            >> Contact
+            >> Footer
+            >> Theme Customize
+   ==================================================================== */
 /* ===== Font ===== */
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
 body {
@@ -62,61 +87,11 @@ body {
   line-height: 1.7;
 }
 
-section:not(#home), #testimonial {
-  padding: 3.75rem 0;
-}
-
 .container {
   width: 100%;
   max-width: 992px;
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-.st-title {
-  margin-bottom: 2rem;
-}
-@media screen and (max-width: 767px) {
-  .st-title {
-    text-align: center;
-  }
-}
-.st-title h2 {
-  position: relative;
-  display: inline-block;
-  text-transform: capitalize;
-}
-.st-title h2:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 2px;
-  height: 2px;
-  width: 65%;
-  background-color: var(--color-primary);
-}
-@media screen and (max-width: 767px) {
-  .st-title h2:before {
-    right: 0;
-    left: 0;
-    margin: auto;
-  }
-}
-.st-title h2:after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 2px;
-  height: 2px;
-  width: 35%;
-  background-color: var(--color-primary);
-}
-@media screen and (max-width: 767px) {
-  .st-title h2:after {
-    right: 0;
-    left: 0;
-    margin: auto;
-  }
 }
 
 h1 {
@@ -133,6 +108,10 @@ h3 {
 
 a {
   text-decoration: none;
+}
+
+button {
+  font-size: var(--small-font-size);
 }
 
 .btn {
@@ -155,6 +134,55 @@ a {
   }
   100% {
     transform: scale(1);
+  }
+}
+
+section:not(#home), #testimonial {
+  padding: 3.75rem 0;
+}
+section:not(#home) .st-title, #testimonial .st-title {
+  margin-bottom: 2rem;
+}
+@media screen and (max-width: 767px) {
+  section:not(#home) .st-title, #testimonial .st-title {
+    text-align: center;
+  }
+}
+section:not(#home) .st-title h2, #testimonial .st-title h2 {
+  position: relative;
+  display: inline-block;
+  text-transform: capitalize;
+}
+section:not(#home) .st-title h2:before, #testimonial .st-title h2:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  height: 2px;
+  width: 65%;
+  background-color: var(--color-primary);
+}
+@media screen and (max-width: 767px) {
+  section:not(#home) .st-title h2:before, #testimonial .st-title h2:before {
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+section:not(#home) .st-title h2:after, #testimonial .st-title h2:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 2px;
+  height: 2px;
+  width: 35%;
+  background-color: var(--color-primary);
+}
+@media screen and (max-width: 767px) {
+  section:not(#home) .st-title h2:after, #testimonial .st-title h2:after {
+    right: 0;
+    left: 0;
+    margin: auto;
   }
 }
 
@@ -859,9 +887,6 @@ header nav .navbar-btn .navbar-toggler:hover {
   color: var(--color-dark);
   transition: border-bottom-color 0.3s;
 }
-.contact .row .col:last-child form .form-group .form-control#message {
-  resize: none;
-}
 .contact .row .col:last-child form .form-group .form-control + .form-label {
   position: absolute;
   top: 0;
@@ -878,6 +903,12 @@ header nav .navbar-btn .navbar-toggler:hover {
   color: var(--color-primary);
   font-size: var(--x-small-font-size);
   transform: translateY(-80%);
+}
+.contact .row .col:last-child form .form-group .form-control#message {
+  resize: none;
+}
+.contact .row .col:last-child form .form-group .form-control#message.active + .form-label, .contact .row .col:last-child form .form-group .form-control#message:focus + .form-label {
+  transform: translateY(-100%);
 }
 .contact .row .col:last-child form button {
   padding-top: 0.5rem;
@@ -917,7 +948,7 @@ footer {
   max-width: 500px;
   padding: 3rem;
   border-radius: 2rem;
-  background-color: var(--color-white);
+  background-color: var(--color-light);
 }
 @media screen and (max-width: 991px) {
   .tm-customize .card {
@@ -961,7 +992,7 @@ footer {
   align-items: center;
   padding: 0.6rem 1rem;
   border-radius: 2rem;
-  background-color: var(--color-light);
+  background-color: var(--color-white);
 }
 .tm-customize .card .font-size > div .choose-size {
   display: flex;
@@ -991,7 +1022,7 @@ footer {
   justify-content: space-between;
   padding: 0.6rem 1rem;
   border-radius: 2rem;
-  background-color: var(--color-light);
+  background-color: var(--color-white);
 }
 .tm-customize .card .color .choose-color span {
   height: 1.8rem;
@@ -1016,14 +1047,13 @@ footer {
   background-color: hsl(202deg, 75%, 60%);
 }
 .tm-customize .card .color .choose-color span.active {
-  border: 5px solid #fff;
+  border: 5px solid var(--color-dark);
 }
 .tm-customize .card .background {
   margin-top: 1rem;
 }
 .tm-customize .card .background .choose-bg {
   display: flex;
-  align-items: center;
   gap: 0.6rem;
 }
 .tm-customize .card .background .choose-bg > div {
@@ -1032,12 +1062,13 @@ footer {
   align-items: center;
   width: 100%;
   padding: 0.8rem 0.2rem;
+  border: 2px solid transparent;
   border-radius: 0.4rem;
   cursor: pointer;
 }
 .tm-customize .card .background .choose-bg > div.bg-1 {
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  background-color: hsl(252deg, 30%, 92%);
+  color: #111;
 }
 .tm-customize .card .background .choose-bg > div.bg-2 {
   background-color: hsl(252deg, 30%, 17%);
@@ -1048,7 +1079,7 @@ footer {
   color: #fff;
 }
 .tm-customize .card .background .choose-bg > div.active {
-  border: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
 }
 .tm-customize .card .background .choose-bg > div span {
   height: 1.4rem;

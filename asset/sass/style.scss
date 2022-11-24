@@ -1,3 +1,31 @@
+/* ====================================================================
+            Template Name: Bolby
+            Template URI: https://projects.khalidmahmud.me/bolby
+            Description:
+            Author: S.M. Khalid Mahmud
+            Author URI: https://khalidmahmud.me
+            Support: hello@khalidmahmud.me
+            Version: 1.0
+   ==================================================================== */
+
+/* ====================================================================
+            INDEX
+            =========
+            >> Font
+            >> Common
+            >> Header
+            >> Home
+            >> About
+            >> Service
+            >> Experience / Education
+            >> Portfolio
+            >> Testimonial
+            >> Contact
+            >> Footer
+            >> Theme Customize
+   ==================================================================== */
+
+
 @import "mixin";
 
 /* ===== Font ===== */
@@ -67,61 +95,11 @@ body {
   line-height: 1.7;
 }
 
-section:not(#home), #testimonial {
-  padding: 3.75rem 0;
-}
-
 .container {
   width: 100%;
   max-width: 992px;
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-.st-title {
-  margin-bottom: 2rem;
-
-  @include sm_device {
-    text-align: center;
-  }
-
-  h2 {
-    position: relative;
-    display: inline-block;
-    text-transform: capitalize;
-
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 2px;
-      height: 2px;
-      width: 65%;
-      background-color: var(--color-primary);
-
-      @include sm_device {
-        right: 0;
-        left: 0;
-        margin: auto;
-      }
-    }
-
-    &:after {
-      content: "";
-      position: absolute;
-      bottom: -5px;
-      left: 2px;
-      height: 2px;
-      width: 35%;
-      background-color: var(--color-primary);
-
-      @include sm_device {
-        right: 0;
-        left: 0;
-        margin: auto;
-      }
-    }
-  }
 }
 
 h1 {
@@ -144,6 +122,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  font-size: var(--small-font-size);
+}
+
 .btn {
   display: inline-block;
   padding: 0.25rem 1rem;
@@ -161,6 +143,56 @@ a {
     @keyframes push {
       50% { transform: scale(0.8); }
       100% { transform: scale(1); }
+    }
+  }
+}
+
+section:not(#home), #testimonial {
+  padding: 3.75rem 0;
+
+  .st-title {
+    margin-bottom: 2rem;
+
+    @include sm_device {
+      text-align: center;
+    }
+
+    h2 {
+      position: relative;
+      display: inline-block;
+      text-transform: capitalize;
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 2px;
+        height: 2px;
+        width: 65%;
+        background-color: var(--color-primary);
+
+        @include sm_device {
+          right: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 2px;
+        height: 2px;
+        width: 35%;
+        background-color: var(--color-primary);
+
+        @include sm_device {
+          right: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
     }
   }
 }
@@ -945,10 +977,6 @@ header {
               color: var(--color-dark);
               transition: border-bottom-color 0.3s;
 
-              &#message {
-                resize: none;
-              }
-
               & + .form-label {
                 position: absolute;
                 top: 0;
@@ -966,6 +994,16 @@ header {
                   color: var(--color-primary);
                   font-size: var(--x-small-font-size);
                   transform: translateY(-80%);
+                }
+              }
+
+              &#message {
+                resize: none;
+
+                &.active, &:focus {
+                  & + .form-label {
+                    transform: translateY(-100%);
+                  }
                 }
               }
             }
@@ -1015,7 +1053,7 @@ footer {
     max-width: 500px;
     padding: 3rem;
     border-radius: 2rem;
-    background-color: var(--color-white);
+    background-color: var(--color-light);
 
     @include md_device {
       width: 50vw;
@@ -1058,7 +1096,7 @@ footer {
         align-items: center;
         padding: 0.6rem 1rem;
         border-radius: 2rem;
-        background-color: var(--color-light);
+        background-color: var(--color-white);
 
         .choose-size {
           display: flex;
@@ -1093,7 +1131,7 @@ footer {
         justify-content: space-between;
         padding: 0.6rem 1rem;
         border-radius: 2rem;
-        background-color: var(--color-light);
+        background-color: var(--color-white);
 
         span {
           height: 1.8rem;
@@ -1123,7 +1161,7 @@ footer {
           }
 
           &.active {
-            border: 5px solid #fff;
+            border: 5px solid var(--color-dark);
           }
         }
       }
@@ -1134,7 +1172,6 @@ footer {
 
       .choose-bg {
         display: flex;
-        align-items: center;
         gap: 0.6rem;
 
         & > div {
@@ -1143,12 +1180,13 @@ footer {
           align-items: center;
           width: 100%;
           padding: 0.8rem 0.20rem;
+          border: 2px solid transparent;
           border-radius: 0.4rem;
           cursor: pointer;
 
           &.bg-1 {
-            background-color: var(--color-light);
-            color: var(--color-dark);
+            background-color: hsl(252, 30%, 92%);
+            color: #111;
           }
 
           &.bg-2 {
@@ -1162,7 +1200,7 @@ footer {
           }
 
           &.active {
-            border: 2px solid var(--color-primary);
+            border-color: var(--color-primary);
           }
 
           span {
